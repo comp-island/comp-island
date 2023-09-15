@@ -1,7 +1,6 @@
 export type Framework = 'vue' | 'react' | 'angular' | 'svelte' | 'vanilla'
-export type ComponentType = 'ui' | 'chart' | 'editor' | 'table' | 'form' | 'map' | 'media' | 'other'
-export type DeviceType = 'responsive' | 'mobile' | 'desktop' | 'tablet'
-
+export type Category = 'framework' | 'table' | 'pagination'
+export type Device = 'responsive' | 'mobile' | 'desktop'
 export interface ComponentInfo {
   id: number
   name: string
@@ -9,8 +8,6 @@ export interface ComponentInfo {
   authorUrl?: string
   authorAvatar: string
   defaultBranch?: string
-  type: ComponentType[]
-  framework: Framework[]
   repository: string
   homepage: string
   description: string
@@ -21,10 +18,20 @@ export interface ComponentInfo {
   topics?: string[]
   createAt: string
   updateAt: string
+  category: Category
+  framework: Framework[]
+  device?: Device[]
 }
 
 export interface RepoInfo {
+  category?: string
   repository: string
   framework: Framework[]
-  type: ComponentType[]
+}
+
+export interface CategoryInfo {
+  name: string
+  count: number
+  icon?: string
+  description?: string
 }

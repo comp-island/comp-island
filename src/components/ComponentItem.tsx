@@ -30,7 +30,7 @@ export default function ComponentItem(props: ComponentItemProps) {
             <div class="i-octicon-repo-24 mr-2 text-14px c-gray-500" />
             <span class="c-blue-500 text-14px">{props.item.name}</span>
             <span class="h-18px lh-18px b b-gray-500 c-gray-500 rd-2em text-12px px-2 ml-2 font-500">
-              {props.item.type}
+              {props.item.category}
             </span>
           </div>
           <div class="text-12px c-gray-400">{props.item.updateAt.split('T')[0]}</div>

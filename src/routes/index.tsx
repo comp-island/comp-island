@@ -1,7 +1,7 @@
 import { For, createSignal, onMount } from 'solid-js'
 import Collection from '~/components/ComponentList'
 import SearchBar from '~/components/SearchBar'
-import { filterComponents } from '~/data'
+import { categories, filterComponents } from '~/data'
 import type { ComponentInfo } from '~/data/types'
 
 export default function Home() {
@@ -11,14 +11,11 @@ export default function Home() {
     setComponents(res)
   }
 
-  // TODO
-  const categories = ['Framework', 'Table', 'Form', 'Chart', 'Map', 'Notification']
-
   onMount(() => {
     handleSearch('')
   })
   return (
-    <div class="flex of-hidden pt-12 relative flex-grow">
+    <div class="flex pt-12 relative flex-grow">
       <div class="flex h-screen w-full">
         <div class="max-w-1200px w-full mx-auto">
           <div class="md:mx-6 md:my-6">
@@ -31,8 +28,8 @@ export default function Home() {
                 <For each={categories}>
                   {(item) => (
                     <button class="mb2 flex items-center w-full text-sm px-4 py-2 min-h-[50px] text-left border border-base color-base hover:shadow">
-                      <span class="c-gray-500">{item}</span>
-                      <span class="ml-auto text-center text-gray-400 text-xs">26</span>
+                      <span class="c-gray-500">{item.name}</span>
+                      <span class="ml-auto text-center text-gray-400 text-xs">{item.count}</span>
                     </button>
                   )}
                 </For>

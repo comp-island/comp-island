@@ -15,12 +15,17 @@ export default function () {
   const tabs = [
     {
       id: 1,
-      name: 'readme',
+      name: 'Readme',
       icon: 'i-carbon-document',
     },
     {
       id: 2,
-      name: 'changelog',
+      name: 'Changelog',
+      icon: 'i-carbon-change-catalog',
+    },
+    {
+      id: 3,
+      name: 'Discussions',
       icon: 'i-carbon-change-catalog',
     },
   ]
@@ -49,7 +54,7 @@ export default function () {
           <span class="font-semibold truncate mb-2">{info()?.name}</span>
           <div>
             <a href="#" class="flex">
-              <span class="text-sm ml-3">{info()?.type}</span>
+              <span class="text-sm ml-3">{info()?.category}</span>
             </a>
           </div>
         </h2>
@@ -82,20 +87,22 @@ export default function () {
         <Show when={activeTab() === 2}>
           <Markdown content={changeLog()} />
         </Show>
-        <Giscus
-          id="comments"
-          repo="comp-island/giscus"
-          repoId="R_kgDOKTcTvw"
-          category="General"
-          categoryId="DIC_kwDOKTcTv84CZTEU"
-          mapping="title"
-          reactionsEnabled="1"
-          emitMetadata="0"
-          inputPosition="bottom"
-          theme="light"
-          lang="zh-CN"
-          loading="lazy"
-        />
+        <Show when={activeTab() === 3}>
+          <Giscus
+            id="comments"
+            repo="comp-island/giscus"
+            repoId="R_kgDOKTcTvw"
+            category="General"
+            categoryId="DIC_kwDOKTcTv84CZTEU"
+            mapping="title"
+            reactionsEnabled="1"
+            emitMetadata="0"
+            inputPosition="bottom"
+            theme="light"
+            lang="zh-CN"
+            loading="lazy"
+          />
+        </Show>
       </main>
     </div>
   )
