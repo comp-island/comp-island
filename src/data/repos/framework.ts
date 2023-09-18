@@ -79,7 +79,7 @@ export const framework: RepoInfo[] = [
   },
   {
     framework: ['vue'],
-    repository: 'https://github.com/inkline/inkline/',
+    repository: 'https://github.com/inkline/inkline',
   },
   {
     framework: ['vue'],
