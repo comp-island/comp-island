@@ -1,30 +1,30 @@
-name: Update Components Info
+# name: Update Components Info
 
-on:
-  watch:
-    types: started
-  schedule:
-    - cron: '0 0 * * *'
+# on:
+#   watch:
+#     types: started
+#   schedule:
+#     - cron: '0 0 * * *'
 
-jobs:
-  update-components:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v1
-        with:
-          node-version: 18
+# jobs:
+#   update-components:
+#     runs-on: ubuntu-latest
+#     steps:
+#       - uses: actions/checkout@v2
+#       - uses: actions/setup-node@v1
+#         with:
+#           node-version: 18
 
-      - name: Install dependencies
-        run: npm install
+#       - name: Install dependencies
+#         run: npm install
 
-      - name: Update components info
-        run: npx esno ./scripts/update-components.ts
+#       - name: Update components info
+#         run: npx esno ./scripts/update-components.ts
 
-      - name: Commit and Push
-        run: |
-          git config --global user.email "bot@github.com" && git config --global user.name "Bot"
-          git diff
-          git add .
-          git commit -m ":memo: update components info" || exit 0
-          git push
+#       - name: Commit and Push
+#         run: |
+#           git config --global user.email "bot@github.com" && git config --global user.name "Bot"
+#           git diff
+#           git add .
+#           git commit -m ":memo: update components info" || exit 0
+#           git push
